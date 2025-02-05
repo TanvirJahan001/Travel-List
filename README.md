@@ -52,7 +52,7 @@ A React-based travel packing list application that helps users keep track of the
 
 1. Clone the repository
 ```bash
-git clone [your-repo-link]
+git clone https://github.com/TanvirJahan001/Travel-List.git
 ```
 
 2. Install dependencies
