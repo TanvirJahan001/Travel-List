@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syncopate:wght@700&display=swap");
+
+:root {
+  --primary-color: #6366f1;
+  --primary-light: #818cf8;
+  --secondary-color: #14b8a6;
+  --background-color: #f8fafc;
+  --surface-color: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #f43f5e;
+  --success-color: #10b981;
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --hover-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--text-primary);
+  background-color: #f1f5f9;
+  line-height: 1.5;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+h1 {
+  text-align: center;
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: white;
+  font-family: "Syncopate", sans-serif;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  text-transform: uppercase;
+  font-weight: 700;
+  word-spacing: 10px;
+  letter-spacing: -1px;
+  padding: 3rem 2rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 55%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.add-form {
+  background-color: var(--surface-color);
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+button,
+select,
+input {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-family: inherit;
+  border: 2px solid #e2e8f0;
+  border-radius: 1.2rem;
+  padding: 1.2rem 2.4rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+select:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--primary-light);
+}
+
+.add-form button {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 1.4rem 3rem;
+}
+
+.list {
+  background-color: transparent;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actions button,
+.list select {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  font-weight: 600;
+  padding: 1rem 2.4rem;
+}
+
+.actions button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.list {
+  background-color: transparent;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+.list ul {
+  list-style: none;
+  width: 100%;
+  max-width: 130rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2.5rem;
+  padding: 0 2rem;
+}
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actions button,
+.list select {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  font-weight: 600;
+  padding: 1rem 2.4rem;
+}
+
+.actions button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.list ul {
+  list-style: none;
+  width: 100%;
+  max-width: 130rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  padding: 0 2rem;
+}
+
+/* responsive breakpoints for smaller screens */
+@media (max-width: 1200px) {
+  .list ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .list ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .list ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.list li {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.6rem;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  border-radius: 1.6rem 0 0 1.6rem;
+}
+
+.list li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hover-shadow);
+}
+
+input[type="checkbox"] {
+  height: 2.2rem;
+  width: 2.2rem;
+  accent-color: var(--primary-color);
+  border-radius: 0.6rem;
+}
+
+.list li button {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 2rem;
+  padding: 1rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.list li button:hover {
+  opacity: 1;
+  transform: scale(1.1) rotate(4deg);
+}
+
+.stats {
+  background: linear-gradient(135deg, var(--secondary-color), #0d9488);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 2.5rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+.item {
+  width: 100%;
+  position: relative;
+}
+
+.item span {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.item span.packed {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.delete-btn {
+  color: var(--accent-color);
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0.8rem;
+}
+
+.delete-btn:hover {
+  color: #e11d48;
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Glass morphism effect for cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .add-form {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  .list ul {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  button,
+  select,
+  input {
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  .list li {
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .actions button,
+  .actions select {
+    width: 100%;
+    max-width: 32rem;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 5vw, 4rem);
+    padding: 2rem 1rem;
+  }
+}
